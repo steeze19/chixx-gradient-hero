@@ -47,6 +47,10 @@ All colors MUST be HSL.
     --gradient-liquid-2: 174 62% 75%;
     --gradient-liquid-3: 142 76% 65%;
     --gradient-liquid-4: 160 84% 55%;
+    
+    --g1: #d9fbe7;
+    --g2: #b8f0d2;
+    --g3: #a3e9c6;
 
     --sidebar-background: 0 0% 98%;
 
@@ -151,6 +155,30 @@ All colors MUST be HSL.
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
   
+  .liquid-bg {
+    position: fixed;
+    inset: -20vh;
+    z-index: -1;
+    filter: blur(40px);
+    background:
+      radial-gradient(35% 35% at 20% 30%, var(--g2), transparent 60%),
+      radial-gradient(35% 35% at 80% 20%, var(--g3), transparent 60%),
+      radial-gradient(50% 50% at 50% 80%, var(--g1), transparent 60%);
+    animation: float 28s ease-in-out infinite alternate;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate3d(-10px, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(10px, -8px, 0) scale(1.05);
+    }
+    100% {
+      transform: translate3d(-6px, 6px, 0) scale(1.02);
+    }
+  }
+  
   @media (prefers-reduced-motion: reduce) {
     .animate-liquid {
       animation: none;
@@ -161,6 +189,10 @@ All colors MUST be HSL.
       animation: none;
       opacity: 1;
       transform: translateY(0);
+    }
+    
+    .liquid-bg {
+      animation: none;
     }
   }
 }

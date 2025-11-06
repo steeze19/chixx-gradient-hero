@@ -27,21 +27,12 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Animated Liquid Gradient Background */}
-      <div
-        className="fixed inset-0 -z-10 animate-liquid"
-        style={{
-          background: `linear-gradient(135deg, 
-            hsl(var(--gradient-liquid-1)), 
-            hsl(var(--gradient-liquid-2)), 
-            hsl(var(--gradient-liquid-3)), 
-            hsl(var(--gradient-liquid-4)))`,
-        }}
-      />
+      <div className="liquid-bg" />
 
       {/* Main Content */}
       <main className="flex min-h-screen items-center justify-center p-4 md:p-6">
         <article
-          className="glass-card w-full max-w-lg rounded-3xl shadow-2xl p-8 md:p-12 animate-fade-in-up"
+          className="glass-card w-full max-w-[420px] rounded-3xl shadow-2xl p-8 md:p-12 animate-fade-in-up"
           style={{ animationDelay: "0.1s" }}
         >
           {/* WhatsApp Icon */}
@@ -52,30 +43,16 @@ const Index = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 text-gray-900">
+          <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
             WhatsApp Chat & Earn
           </h1>
-
-          {/* Status Pill */}
-          <div
-            className="bg-secondary rounded-2xl p-4 mb-6 text-center animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            <p className="text-secondary-foreground font-semibold text-lg">
-              Favour just got paid ₦494000 • 33m ago
-            </p>
-          </div>
 
           {/* Online Now Section */}
           <div
             className="mb-8 animate-fade-in-up"
-            style={{ animationDelay: "0.3s" }}
+            style={{ animationDelay: "0.2s" }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="flex gap-1">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" style={{ animationDelay: "0.2s" }} />
-              </div>
+            <div className="flex items-center justify-center mb-4">
               <span className="text-primary font-bold text-lg tracking-wide">ONLINE NOW</span>
             </div>
 
@@ -99,7 +76,7 @@ const Index = () => {
           {/* Gender Selection */}
           <div
             className="mb-8 animate-fade-in-up"
-            style={{ animationDelay: "0.4s" }}
+            style={{ animationDelay: "0.3s" }}
           >
             <h2 className="text-2xl font-semibold text-center mb-6 text-gray-700">
               Are you Male or Female?
@@ -135,7 +112,7 @@ const Index = () => {
           {/* CTA Buttons */}
           <div
             className="space-y-4 mb-6 animate-fade-in-up"
-            style={{ animationDelay: "0.5s" }}
+            style={{ animationDelay: "0.4s" }}
           >
             <Button
               size="lg"
@@ -174,26 +151,6 @@ const Index = () => {
           </footer>
         </article>
       </main>
-
-      {/* Sticky Mobile Bottom Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-gray-200 p-4 shadow-2xl z-50">
-        <div className="flex gap-3 max-w-lg mx-auto">
-          <Button
-            size="lg"
-            className="flex-1 h-14 text-base font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
-            onClick={handleJoinWhatsApp}
-          >
-            Join WhatsApp
-          </Button>
-          <Button
-            size="lg"
-            className="flex-1 h-14 text-base font-bold rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
-            onClick={handleJoinTelegram}
-          >
-            Join Telegram
-          </Button>
-        </div>
-      </div>
     </div>
   );
 };
