@@ -48,9 +48,11 @@ All colors MUST be HSL.
     --gradient-liquid-3: 142 76% 65%;
     --gradient-liquid-4: 160 84% 55%;
     
-    --g1: #d9fbe7;
-    --g2: #b8f0d2;
-    --g3: #a3e9c6;
+    --liquid-green: #00C853;
+    --liquid-white: #FFFFFF;
+    --liquid-green-light: rgba(0, 200, 83, 0.4);
+    --liquid-green-soft: rgba(0, 200, 83, 0.2);
+    --liquid-white-soft: rgba(255, 255, 255, 0.6);
 
     --sidebar-background: 0 0% 98%;
 
@@ -149,33 +151,80 @@ All colors MUST be HSL.
   }
   
   .glass-card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(0, 200, 83, 0.1);
   }
   
   .liquid-bg {
     position: fixed;
-    inset: -20vh;
+    inset: 0;
     z-index: -1;
-    filter: blur(40px);
-    background:
-      radial-gradient(35% 35% at 20% 30%, var(--g2), transparent 60%),
-      radial-gradient(35% 35% at 80% 20%, var(--g3), transparent 60%),
-      radial-gradient(50% 50% at 50% 80%, var(--g1), transparent 60%);
-    animation: float 28s ease-in-out infinite alternate;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #f0fff5 100%);
   }
   
-  @keyframes float {
-    0% {
-      transform: translate3d(-10px, 0, 0) scale(1);
+  .liquid-bg::before,
+  .liquid-bg::after {
+    content: '';
+    position: absolute;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    will-change: transform;
+  }
+  
+  .liquid-bg::before {
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    left: -5%;
+    background: radial-gradient(circle, var(--liquid-green-light) 0%, transparent 70%);
+    animation: liquid-float-1 25s ease-in-out infinite;
+    filter: blur(60px);
+  }
+  
+  .liquid-bg::after {
+    width: 600px;
+    height: 600px;
+    bottom: -15%;
+    right: -10%;
+    background: radial-gradient(circle, var(--liquid-green-soft) 0%, var(--liquid-white-soft) 50%, transparent 70%);
+    animation: liquid-float-2 30s ease-in-out infinite;
+    filter: blur(80px);
+  }
+  
+  @keyframes liquid-float-1 {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    }
+    25% {
+      transform: translate(50px, 30px) rotate(90deg) scale(1.1);
+      border-radius: 50% 60% 50% 40% / 60% 40% 50% 60%;
     }
     50% {
-      transform: translate3d(10px, -8px, 0) scale(1.05);
+      transform: translate(20px, -40px) rotate(180deg) scale(0.95);
+      border-radius: 60% 40% 60% 50% / 50% 60% 40% 50%;
     }
-    100% {
-      transform: translate3d(-6px, 6px, 0) scale(1.02);
+    75% {
+      transform: translate(-30px, 20px) rotate(270deg) scale(1.05);
+      border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
+    }
+  }
+  
+  @keyframes liquid-float-2 {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+      border-radius: 60% 40% 50% 60% / 50% 60% 40% 50%;
+    }
+    33% {
+      transform: translate(-40px, 50px) rotate(120deg) scale(1.08);
+      border-radius: 50% 60% 60% 40% / 60% 50% 50% 60%;
+    }
+    66% {
+      transform: translate(30px, -30px) rotate(240deg) scale(0.92);
+      border-radius: 40% 50% 60% 50% / 50% 60% 50% 40%;
     }
   }
   
@@ -191,7 +240,8 @@ All colors MUST be HSL.
       transform: translateY(0);
     }
     
-    .liquid-bg {
+    .liquid-bg::before,
+    .liquid-bg::after {
       animation: none;
     }
   }
