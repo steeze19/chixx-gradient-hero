@@ -9,7 +9,7 @@ import avatar4 from "@/assets/avatar-4.jpg";
 const Index = () => {
   const [selectedGender, setSelectedGender] = useState<"male" | "female" | null>(null);
 
-  const whatsappLink = "https://chat.whatsapp.com/KCk2ZoZnbcqIJZgchJSjeH";
+  const whatsappLink = "https://chat.whatsapp.com/HAvdWOIv5alFcgRnQvOjvP?mode=hqrt1";
   const telegramLink = "https://t.me/officialbluepay2025";
 
   const handleStartChatting = () => {
