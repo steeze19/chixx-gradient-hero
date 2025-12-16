@@ -47,14 +47,17 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Single CTA Button */}
-          <Button
-            size="lg"
-            className="h-16 px-16 text-xl font-semibold rounded-full bg-whatsapp-green hover:bg-whatsapp-green/90 text-white shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:shadow-[0_0_60px_rgba(37,211,102,0.5)] transition-all duration-300"
-            onClick={handleJoinWhatsApp}
-          >
-            Join WhatsApp
-          </Button>
+          {/* Single CTA Button with rotating glow */}
+          <div className="relative">
+            <div className="btn-glow-ring" />
+            <Button
+              size="lg"
+              className="relative h-16 px-16 text-xl font-semibold rounded-full bg-whatsapp-green hover:bg-whatsapp-green/90 text-white shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:shadow-[0_0_60px_rgba(37,211,102,0.5)] transition-all duration-300 z-10"
+              onClick={handleJoinWhatsApp}
+            >
+              Join WhatsApp
+            </Button>
+          </div>
 
           {/* Footer */}
           <footer className="pt-10 text-white/40 text-sm">

@@ -275,6 +275,38 @@ All colors MUST be HSL.
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.5); }
   }
+  /* Button rotating glow ring */
+  .btn-glow-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: 9999px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      hsl(142 70% 49% / 0.8) 60deg,
+      hsl(142 70% 60% / 0.6) 120deg,
+      transparent 180deg,
+      hsl(142 70% 49% / 0.8) 240deg,
+      hsl(142 70% 60% / 0.6) 300deg,
+      transparent 360deg
+    );
+    animation: btn-glow-spin 3s linear infinite;
+    filter: blur(8px);
+    opacity: 0.8;
+  }
+
+  .btn-glow-ring::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 9999px;
+    background: hsl(0 0% 0%);
+  }
+
+  @keyframes btn-glow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
   
   @media (prefers-reduced-motion: reduce) {
     .orb,
@@ -285,7 +317,8 @@ All colors MUST be HSL.
     .sparkle-1,
     .sparkle-2,
     .sparkle-3,
-    .sparkle-4 {
+    .sparkle-4,
+    .btn-glow-ring {
       animation: none !important;
     }
   }
