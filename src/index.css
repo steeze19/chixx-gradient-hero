@@ -275,46 +275,44 @@ All colors MUST be HSL.
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.5); }
   }
-  /* Button edge light effect (moving highlight around the rim) */
+  /* Button edge light effect */
   .btn-glow-ring {
     position: absolute;
-    inset: -4px;
+    inset: -2px;
     border-radius: 9999px;
-    pointer-events: none;
+    overflow: hidden;
+  }
 
-    /* gradient border ring (no mask-composite; works reliably) */
-    border: 2px solid transparent;
-    background:
-      /* inner fill matches button so ring never covers text */
-      linear-gradient(hsl(var(--whatsapp-green)), hsl(var(--whatsapp-green))) padding-box,
-      /* outer moving "light" */
-      conic-gradient(
-        from 0deg,
-        transparent 0deg 330deg,
-        hsl(var(--whatsapp-green) / 0.2) 338deg,
-        hsl(var(--whatsapp-green) / 0.95) 348deg,
-        hsl(0 0% 100% / 0.95) 354deg,
-        hsl(var(--whatsapp-green) / 0.95) 358deg,
-        transparent 360deg
-      ) border-box;
+  .btn-glow-ring::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg 320deg,
+      hsl(142 70% 55%) 340deg,
+      hsl(142 70% 70%) 350deg,
+      hsl(0 0% 100%) 355deg,
+      hsl(142 70% 70%) 358deg,
+      transparent 360deg
+    );
+    animation: edge-light-spin 2s linear infinite;
+  }
 
-    filter:
-      drop-shadow(0 0 10px hsl(var(--whatsapp-green) / 0.55))
-      drop-shadow(0 0 22px hsl(var(--whatsapp-green) / 0.25));
-
-    animation: edge-light-spin 1.8s linear infinite;
-    z-index: 5;
+  .btn-glow-ring::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 9999px;
+    background: hsl(142 70% 49%);
   }
 
   @keyframes edge-light-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
-
+  
   @media (prefers-reduced-motion: reduce) {
     .orb,
     .orb-1,
@@ -324,11 +322,8 @@ All colors MUST be HSL.
     .sparkle-1,
     .sparkle-2,
     .sparkle-3,
-    .sparkle-4 {
-      animation: none !important;
-    }
-
-    .btn-glow-ring::before {
+    .sparkle-4,
+    .btn-glow-ring {
       animation: none !important;
     }
   }
