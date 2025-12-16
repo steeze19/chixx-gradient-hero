@@ -18,6 +18,15 @@ const Index = () => {
       <div className="orb orb-2" />
       <div className="orb orb-3" />
 
+      {/* Sparkle particles */}
+      {[...Array(12)].map((_, i) => (
+        <div key={i} className={`sparkle sparkle-${(i % 4) + 1}`} style={{
+          left: `${10 + (i * 7) % 80}%`,
+          top: `${5 + (i * 11) % 90}%`,
+          animationDelay: `${i * 0.5}s`
+        }} />
+      ))}
+
       {/* Main Content */}
       <main className="flex min-h-screen items-center justify-center p-4 relative z-10">
         <div className="text-center space-y-10 animate-fade-in-up">

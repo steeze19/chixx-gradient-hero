@@ -211,12 +211,81 @@ All colors MUST be HSL.
     0%, 100% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(-15px, 15px) scale(1.05); }
   }
+  /* Sparkle particles */
+  .sparkle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: hsl(142 70% 49% / 0.8);
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 6px 2px hsl(142 70% 49% / 0.4);
+  }
+
+  .sparkle-1 {
+    animation: sparkle-float-1 8s ease-in-out infinite, sparkle-pulse 2s ease-in-out infinite;
+  }
+
+  .sparkle-2 {
+    animation: sparkle-float-2 10s ease-in-out infinite, sparkle-pulse 2.5s ease-in-out infinite;
+    width: 3px;
+    height: 3px;
+  }
+
+  .sparkle-3 {
+    animation: sparkle-float-3 12s ease-in-out infinite, sparkle-pulse 3s ease-in-out infinite;
+    width: 5px;
+    height: 5px;
+    background: hsl(0 0% 100% / 0.6);
+    box-shadow: 0 0 8px 2px hsl(0 0% 100% / 0.3);
+  }
+
+  .sparkle-4 {
+    animation: sparkle-float-4 9s ease-in-out infinite, sparkle-pulse 2.2s ease-in-out infinite;
+    width: 2px;
+    height: 2px;
+  }
+
+  @keyframes sparkle-float-1 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+    25% { transform: translate(20px, -30px); opacity: 1; }
+    50% { transform: translate(-10px, -60px); opacity: 0.5; }
+    75% { transform: translate(15px, -30px); opacity: 0.8; }
+  }
+
+  @keyframes sparkle-float-2 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+    33% { transform: translate(-25px, -40px); opacity: 1; }
+    66% { transform: translate(10px, -70px); opacity: 0.6; }
+  }
+
+  @keyframes sparkle-float-3 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.2; }
+    50% { transform: translate(30px, -50px); opacity: 0.9; }
+  }
+
+  @keyframes sparkle-float-4 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+    40% { transform: translate(-15px, -45px); opacity: 1; }
+    80% { transform: translate(20px, -20px); opacity: 0.3; }
+  }
+
+  @keyframes sparkle-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+  }
   
   @media (prefers-reduced-motion: reduce) {
     .orb,
     .orb-1,
     .orb-2,
-    .orb-3 {
+    .orb-3,
+    .sparkle,
+    .sparkle-1,
+    .sparkle-2,
+    .sparkle-3,
+    .sparkle-4 {
       animation: none !important;
     }
   }
