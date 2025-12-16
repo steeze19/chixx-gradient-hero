@@ -43,7 +43,7 @@ const Index = () => {
               WhatsApp
             </h1>
             <p className="text-white/60 text-lg">
-              Join our community
+              Join our group
             </p>
           </div>
 
