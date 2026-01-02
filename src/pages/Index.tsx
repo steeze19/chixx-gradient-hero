@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 
 const Index = () => {
-  const whatsappLink = "https://chat.whatsapp.com/J2m6LRi1hCg5rZZ5L5qF4P";
+  const whatsappLink = "https://chat.whatsapp.com/Ht5T3wRw1br3WXWlJsS3OI";
 
   const handleJoinWhatsApp = () => {
     window.open(whatsappLink, "_blank", "noopener,noreferrer");
