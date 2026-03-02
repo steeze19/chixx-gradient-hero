@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ArrowRight, Users, Shield, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
+import avatar4 from "@/assets/avatar-4.jpg";
 
 const Index = () => {
   const whatsappLink = "https://chat.whatsapp.com/GxM1rxUpGF3FLCzvq9dYkt?mode=hq1tcla";
@@ -10,59 +15,138 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
-      {/* iOS 26 Style Background */}
-      <div className="ios-bg" />
+      {/* Mesh gradient background */}
+      <div className="mesh-bg" />
       
-      {/* Floating orbs */}
-      <div className="orb orb-1" />
-      <div className="orb orb-2" />
-      <div className="orb orb-3" />
+      {/* Noise texture overlay */}
+      <div className="noise-overlay" />
 
-      {/* Sparkle particles */}
-      {[...Array(12)].map((_, i) => (
-        <div key={i} className={`sparkle sparkle-${(i % 4) + 1}`} style={{
-          left: `${10 + (i * 7) % 80}%`,
-          top: `${5 + (i * 11) % 90}%`,
-          animationDelay: `${i * 0.5}s`
-        }} />
-      ))}
+      {/* Ambient glow blobs */}
+      <div className="glow-blob glow-blob-1" />
+      <div className="glow-blob glow-blob-2" />
+      <div className="glow-blob glow-blob-3" />
+
+      {/* Grid lines */}
+      <div className="grid-lines" />
 
       {/* Main Content */}
-      <main className="flex min-h-screen items-center justify-center p-4 relative z-10">
-        <div className="text-center space-y-10 animate-fade-in-up">
-          {/* WhatsApp Icon */}
-          <div className="flex justify-center">
-            <div className="w-28 h-28 rounded-full bg-whatsapp-green/20 backdrop-blur-xl border border-whatsapp-green/30 flex items-center justify-center shadow-[0_0_60px_rgba(37,211,102,0.3)]">
-              <MessageCircle className="w-16 h-16 text-whatsapp-green" strokeWidth={1.5} />
+      <main className="flex min-h-screen items-center justify-center p-6 relative z-10">
+        <div className="max-w-lg w-full">
+          {/* Status pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center mb-8"
+          >
+            <div className="glass-pill flex items-center gap-2 px-4 py-2 rounded-full">
+              <span className="live-dot" />
+              <span className="text-sm font-medium text-white/80 tracking-wide">Active community</span>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Icon */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex justify-center mb-8"
+          >
+            <div className="icon-container">
+              <div className="icon-ring" />
+              <div className="icon-inner">
+                <MessageCircle className="w-10 h-10 text-white" strokeWidth={1.5} />
+              </div>
+            </div>
+          </motion.div>
 
           {/* Title */}
-          <div className="space-y-3">
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              WhatsApp
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center mb-4"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-none">
+              <span className="text-gradient">Chixx9ja</span>
             </h1>
-            <p className="text-white/60 text-lg">
-              Join our group
-            </p>
-          </div>
+          </motion.div>
 
-          {/* Single CTA Button with rotating glow */}
-          <div className="relative">
-            <div className="btn-glow-ring" />
-            <Button
-              size="lg"
-              className="relative h-16 px-16 text-xl font-semibold rounded-full bg-whatsapp-green hover:bg-whatsapp-green/90 text-white shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:shadow-[0_0_60px_rgba(37,211,102,0.5)] transition-all duration-300 z-10"
-              onClick={handleJoinWhatsApp}
-            >
-              Join WhatsApp
-            </Button>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center text-white/50 text-lg mb-10 font-light"
+          >
+            Join our exclusive WhatsApp group
+          </motion.p>
+
+          {/* Glass card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="glass-card p-6 rounded-3xl mb-8"
+          >
+            {/* Features */}
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              {[
+                { icon: Users, label: "Community" },
+                { icon: Shield, label: "Private" },
+                { icon: Zap, label: "Active" },
+              ].map(({ icon: Icon, label }) => (
+                <div key={label} className="flex flex-col items-center gap-2 py-3">
+                  <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-whatsapp-green" strokeWidth={1.5} />
+                  </div>
+                  <span className="text-xs text-white/50 font-medium">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Avatar stack */}
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="flex -space-x-3">
+                {[avatar1, avatar2, avatar3, avatar4].map((src, i) => (
+                  <motion.img
+                    key={i}
+                    src={src}
+                    alt=""
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
+                    className="w-9 h-9 rounded-full border-2 border-black/50 object-cover"
+                  />
+                ))}
+              </div>
+              <span className="text-sm text-white/40 font-light">100+ members</span>
+            </div>
+
+            {/* CTA Button */}
+            <div className="relative">
+              <div className="btn-glow-ring" />
+              <Button
+                size="lg"
+                className="relative w-full h-14 text-lg font-semibold rounded-2xl bg-whatsapp-green hover:bg-whatsapp-green/90 text-white shadow-[0_0_40px_rgba(37,211,102,0.25)] hover:shadow-[0_0_60px_rgba(37,211,102,0.4)] transition-all duration-500 z-10 group"
+                onClick={handleJoinWhatsApp}
+              >
+                <span className="flex items-center gap-2">
+                  Join WhatsApp
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Button>
+            </div>
+          </motion.div>
 
           {/* Footer */}
-          <footer className="pt-10 text-white/40 text-sm">
-            <p>© 2025 Chixx9ja. All rights reserved.</p>
-          </footer>
+          <motion.footer
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center text-white/25 text-xs"
+          >
+            <p>© 2026 Chixx9ja. All rights reserved.</p>
+          </motion.footer>
         </div>
       </main>
     </div>
