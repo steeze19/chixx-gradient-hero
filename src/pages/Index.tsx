@@ -7,7 +7,7 @@ import avatar3 from "@/assets/avatar-3.jpg";
 import avatar4 from "@/assets/avatar-4.jpg";
 
 const Index = () => {
-  const whatsappLink = "https://chat.whatsapp.com/GxM1rxUpGF3FLCzvq9dYkt?mode=hq1tcla";
+  const whatsappLink = "https://chat.whatsapp.com/LUS3IRRaGrR3BueOPCObgb?mode=gi_t";
 
   const handleJoinWhatsApp = () => {
     window.open(whatsappLink, "_blank", "noopener,noreferrer");
