@@ -145,7 +145,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-center text-white/25 text-xs"
           >
-            <p>© 2026 Chixx9ja. All rights reserved.</p>
+            <p>© 2026 Flexoo. All rights reserved.</p>
           </motion.footer>
         </div>
       </main>
