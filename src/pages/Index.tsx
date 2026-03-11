@@ -68,7 +68,7 @@ const Index = () => {
             className="text-center mb-4"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-none">
-              <span className="text-gradient">Chixx9ja</span>
+              <span className="text-gradient">Flexoo</span>
             </h1>
           </motion.div>
 
@@ -145,7 +145,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-center text-white/25 text-xs"
           >
-            <p>© 2026 Chixx9ja. All rights reserved.</p>
+            <p>© 2026 Flexoo. All rights reserved.</p>
           </motion.footer>
         </div>
       </main>
