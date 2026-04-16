@@ -67,8 +67,9 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center mb-4"
           >
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-none mb-3">
-              <span className="text-gradient">Flexoo</span>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-3">
+              <span className="text-white">Win Big.</span>{" "}
+              <span className="text-gradient">Every Day.</span>
             </h1>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-whatsapp-green/10 border border-whatsapp-green/20">
               <Sparkles className="w-3 h-3 text-whatsapp-green" />
